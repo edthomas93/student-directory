@@ -21,8 +21,12 @@ def print_header
   puts "-------------"
 end
 def print(students)
-  students.each_with_index do |student, index|
-    puts "#{index.to_i + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  index = 0
+  while index < students.length
+    puts "#{students[index][:name]} (#{students[index][:cohort]} cohort)"
+    index +=1
+#  students.each_with_index do |student, index|
+#    puts "#{index.to_i + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 def print_footer(names)
@@ -37,7 +41,6 @@ def first_letter(students)
     end
   end
 end
-#nothing happens until we call the methods
 def print_length(students)
   puts "What is the maximum number of charcaters in the names you wish to view?"
   max_length = gets.chomp.to_i
@@ -47,9 +50,11 @@ def print_length(students)
     end
   end
 end
+#nothing happens until we call the methods
 students = input_students
+puts students.length
 print_header
-print_length(students) #Exercise 3
-#print(students)
+#print_length(students) #Exercise 3
+print(students)
 #first_letter(students) #Exercise 2
 print_footer(students)
