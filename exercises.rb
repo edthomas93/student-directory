@@ -31,20 +31,25 @@ end
 def first_letter(students)
   puts "What letter do the names you want to view begin with?"
   letter = gets.chomp
-  names = []
   students.each do |student|
-    names << student[:name]
-  end
-  names.each do |name|
-    if name.start_with?(letter)
-      puts name
+    if student[:name].start_with?(letter)
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
     end
   end
 end
 #nothing happens until we call the methods
+def print_length(students)
+  puts "What is the maximum number of charcaters in the names you wish to view?"
+  max_length = gets.chomp.to_i
+  students.each do |student|
+    if student[:name].length <= max_length
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  end
+end
 students = input_students
-puts students
 print_header
-print(students)
-first_letter(students)
+print_length(students) #Exercise 3
+#print(students)
+#first_letter(students) #Exercise 2
 print_footer(students)
