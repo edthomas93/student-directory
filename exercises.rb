@@ -1,3 +1,7 @@
+def center(string)
+  puts string.center(80)
+end
+
 def input_students
   puts "Please enter the student's name"
   #create an empty array
@@ -29,20 +33,20 @@ def input_students
   students
 end
 def print_header
-  puts "The students of Villains Academy"
-  puts "-------------"
+  center("The students of Villains Academy")
+  center("-------------")
 end
 def print(students)
   index = 0
   while index < students.length
-    puts "#{students[index][:name]} likes #{students[index][:hobby]} and is in the #{students[index][:cohort]} cohort"
+    center("#{students[index][:name]} likes #{students[index][:hobby]} and is in the #{students[index][:cohort]} cohort")
     index +=1
 #  students.each_with_index do |student, index|
 #    puts "#{index.to_i + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  center("Overall, we have #{names.count} great students")
 end
 def first_letter(students)
   puts "What letter do the names you want to view begin with?"
