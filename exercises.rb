@@ -1,17 +1,29 @@
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
+  puts "Please enter the student's name"
   #create an empty array
   students= []
   #get the first name
   name = gets.chomp
+  #get the hobbies of students
+  puts "Please enter the student's hobby"
+  hobby = gets.chomp
+  #get the cohort of students
+  puts "Please enter the student's cohort"
+  cohort = gets.chomp
   #while the name is not empty repeat this code
   while !name.empty? do
     #add the student hash to the array
-    students << {name: name,  cohort: :november}
-    puts "Now we have #{students.count} students"
+    students << {name: name, hobby: hobby, cohort: cohort}
+    puts "Now we have #{students.count} students, type another name to input another student or hit enter to stop"
     #get another name from the user
     name = gets.chomp
+      if name.empty?
+        break
+      end
+    puts "Please enter the student's hobby"
+    hobby = gets.chomp
+    puts "Please enter the student's cohort"
+    cohort = gets.chomp
   end
   #return the array of students
   students
@@ -23,7 +35,7 @@ end
 def print(students)
   index = 0
   while index < students.length
-    puts "#{students[index][:name]} (#{students[index][:cohort]} cohort)"
+    puts "#{students[index][:name]} likes #{students[index][:hobby]} and is in the #{students[index][:cohort]} cohort"
     index +=1
 #  students.each_with_index do |student, index|
 #    puts "#{index.to_i + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
@@ -52,7 +64,6 @@ def print_length(students)
 end
 #nothing happens until we call the methods
 students = input_students
-puts students.length
 print_header
 #print_length(students) #Exercise 3
 print(students)
