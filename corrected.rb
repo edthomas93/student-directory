@@ -23,13 +23,21 @@ def print_header
 end
 
 def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+  if students.length == 0
+    puts "There are no students to list"
+  else
+    students.each do |student|
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 
 def print_footer(names)
-  puts "Overall, we have #{names.count} great students"
+  if names.length == 0
+    puts "There are no students (yet)"
+  else
+    puts "Overall, we have #{names.count} great students"
+  end
 end
 
 
