@@ -14,7 +14,11 @@ def input_students
   #while the name is not empty repeat this code
   while !name.empty? do
     students << {name: name, cohort: cohort}
-    puts "Now we have #{students.count} students, type another name to input another student or hit enter to stop"
+    if students.count > 1
+      puts "Now we have #{students.count} students, type another name to input another student or hit enter to stop"
+    else
+      puts "Now we have #{students.count} student, type another name to input another student or hit enter to stop"
+    end
     name = gets.chomp.capitalize
       if name.empty?
         break
@@ -58,7 +62,11 @@ def print_by_cohort(students)
 end
 
 def print_footer(names)
-  center("Overall, we have #{names.count} great students")
+  if names.count > 1
+    center("Overall, we have #{names.count} great students")
+  else
+    center("Overall, we have #{names.count} great student")
+  end
 end
 
 #nothing happens until we call the methods
